@@ -14,10 +14,8 @@ public class AuthService {
 
     private static final String VALIDATE_URL = "http://184.72.80.215/usuario/validate";
 
-    @Autowired
-    private RestTemplate restTemplate;
-
     public RetornarUsuarioDTO validarToken(String token) {
+        RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", token);
         HttpEntity<Void> entity = new HttpEntity<>(headers);
